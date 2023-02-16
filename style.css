@@ -5,22 +5,50 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-container{
+container {
     display: flex;
     flex-direction: row;
 }
 
 .aside{
     background: #000;
-    /* width: 400px; */
-    width: 10%;
+    width: 15%;
     height: 100vh;
     color: white ;
+    z-index: 2;
+}
+
+.toggle__menu{
+    display: block;
+    position: absolute;
+    width: 50%;
+    z-index: 3;
+}
+
+
+.hidden{
+    display: none!important;
+}
+
+.btn__menu{
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 999;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 20px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 main {
-    width: 90%;
-    padding: 40px;
+    width: 80%;
+    padding: 10px 100px;
     height: auto;
 }
 
@@ -31,24 +59,31 @@ main {
 
 .main__introduction{
     background: #ececec;
-    padding: 50px 300px;
+    padding: 40px 50px;
     text-align: center;
 }
 
 .main__introduction p{
-    /* width: 100px; */
-    margin: 20px auto 0;
+    width: 70%;
+    margin: 10px auto;
 }
 
 .main__content{
     padding-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.main__content-detail{
+    width: 30%;
 }
 
 .content__text-img{
+    width: 100px;
+    height: 100px;
     float: left;
+    object-fit: contain;
 }
 
 
@@ -59,13 +94,29 @@ main {
     color: #ccc;
 }
 
+.content__detail-heading{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
 .active{
     color: white;
 }
 .tag__link:hover {
-    background-color: #9b9b9b;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
     color: white;
 }
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    margin-top: 30px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
 
 /*Tablet & mobile*/
 @media (max-width: 63.9375em){
@@ -75,9 +126,54 @@ main {
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .navbar__active{
+        display: none;
+    }
+    .btn__menu{
+        display: block;
+    }
+    .main{
+        width: 100%;
+        padding: 10px 50px;
+        height: 100vh;
+        font-size: 0.9rem;
+    }
+    .main__content{
+        font-size: 0.9rem;
+    }
+    .footer p {
+        padding: 10px 100px;
+    }
 
 }
 /*Mobile*/
 @media (max-width: 46.1875em) {
+    .navbar__active{
+        display: none;
+    }
+    .btn__menu{
+        display: block;
+    }
 
+    .main{
+        width: 100%;
+        padding: 10px 50px;
+        height: 100vh;
+    }
+    .main__content{
+        display: flex;
+        flex-direction: column;
+    }
+    .main__introduction p {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .main__content-detail{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer p {
+        padding: 10px 100px;
+    }
 }
